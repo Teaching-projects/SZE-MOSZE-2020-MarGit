@@ -7,28 +7,22 @@
 class Character
 {
 private:
-	int hp, damage;
-	std::string name;
+	int hp; const int  damage;
+	const std::string name;
 
 public:
 	//constructor
 	Character(std::string char_name, int char_hp, int char_dmg);
-	//destructor
-	~Character(); 
-	//setters
-	void setName(std::string char_name);
-	void setHp(int char_hp);
-	void setDamage(int char_dmg);
 	//getters
 	std::string getName() const;
 	int getHp() const;
 	int getDamage() const;
 	//func
-	void attack(Character* const target);
+	void attack(Character& target) const;
+	friend std::ostream& operator<<(std::ostream& os, const Character& character);
 	void stat_out() const;
-	bool Death();
+	bool isDead() const;
 };
-
 
 
 #endif
