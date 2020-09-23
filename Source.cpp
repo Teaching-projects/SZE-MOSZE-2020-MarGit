@@ -2,37 +2,39 @@
 #include <cstdlib>
 #include "Character.h"
 
-
 using namespace std;
+
+void print_stat(const Character& player){
+	cout<< player;
+}
+
+void take_turn (Character& attacker, Character& defender, bool& end){
+	cout<<attacker.getName()<<" -> "<<defender.getName()<<endl;
+	attacker.attack(defender);
+	if (defender.isDead()){
+		end=true;
+		print_stat(attacker),print_stat(defender);
+		cout<< defender.getName()<<" died. "<< attacker.getName()<<" wins.\n";
+	}
+
+}
 
 void auto_combat(Character& player1, Character& player2){
 	int turn=1;
 	bool end=false;
 	while (!end){
-		player1.stat_out();player2.stat_out();
+		print_stat(player1);print_stat(player2);
 		if (turn==1){
-				cout<<player1.getName()<<" -> "<<player2.getName()<<endl;
-				player1.attack(player2);
-				turn=2;
-				if (player2.isDead()){
-					end=true;
-					player1.stat_out();player2.stat_out();	
-					cout<< player2.getName()<<" died. "<< player1.getName()<<" wins.\n";
-				}
+			take_turn(player1,player2,end);
+			turn=2;
 		}
-			else if (turn==2){
-				cout<<player2.getName()<<" -> "<<player1.getName()<<endl;
-				player2.attack(player1);
-				turn=1;
-				if (player1.isDead()){
-					end=true;
-					player1.stat_out();player2.stat_out();
-					cout<< player1.getName()<<" died. "<< player2.getName()<<" wins.\n";
-				}
-			}
-			else{
-				cerr<<"Turn can only be 1 or 2!";
-			}
+		else if (turn==2){
+			take_turn(player2,player1,end);
+			turn=1;
+		}
+		else{
+			cerr<<"Turn can only be 1 or 2!";
+		}
 	}	
 }
 
