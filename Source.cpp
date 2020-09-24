@@ -40,20 +40,22 @@ void auto_combat(Character& player1, Character& player2){
 
 int main(int argc, char* argv[]) {
 	cout << "Program running: " << argv[0] << endl;
-	cout << "2 characters with 3 parameters each (name, HP, dmg)\n";
+	cout << "2 files' name\n";
 	
-	if (argc != 7) {
-		cout << argv[0] << " 2 characters with 3-3 parameters\n";
+	if (argc != 3) {
+		cout << argv[0] << "2 files' name\n";;
 	}
 	else {
 		// command prompt parameters
-		string name1=argv[1], name2=argv[4];
-		int hp1=atoi(argv[2]), dmg1=atoi(argv[3]), hp2=atoi(argv[5]), dmg2=atoi(argv[6]);
-		
-		Character player1 (name1, hp1, dmg1); 
-		Character player2 (name2, hp2, dmg2);
-		
-		auto_combat(player1,player2);
+		try {
+			Character p1=Character::parseUnit(argv[1]);
+			Character p2=Character::parseUnit(argv[2]);
+			auto_combat(p1,p2);
+		}
+		catch (int x){
+		if (x==-99) std::cerr<< "Can not open the files!\n";
+		else std::cerr<<"Something went wrong!\n";	
+		}
 	}
 	return 0;
 }
