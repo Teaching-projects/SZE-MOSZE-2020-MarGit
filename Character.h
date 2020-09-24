@@ -2,7 +2,7 @@
 #include <iostream>
 #ifndef CHARACTER_CLASS_H
 #define CHARACTER_CLASS_H
-
+#include <fstream>
 class Character
 {
 private:
@@ -18,6 +18,7 @@ public:
 	void attack(Character& target) const;
 	friend std::ostream& operator<<(std::ostream& os, const Character& character);
 	bool isDead() const;
+	static Character& parseUnit(std::string filename );
 };
 std::ostream& operator<<(std::ostream& os, const Character& character);
 #endif
