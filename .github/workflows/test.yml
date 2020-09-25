@@ -7,7 +7,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - run: g++ -Wall *.cpp
+      - run: g++ -Wall Source.cpp Character.cpp
       - run: chmod +x runTest.sh
       - run: ./runTest.sh
 
