@@ -4,17 +4,12 @@
 
 using namespace std;
 
-void print_stat(const Character& player){
-	cout<< player;
-}
-
 void take_turn (Character& attacker, Character& defender, bool& end){
-	cout<<attacker.getName()<<" -> "<<defender.getName()<<endl;
 	attacker.attack(defender);
 	if (defender.isDead()){
 		end=true;
-		print_stat(attacker),print_stat(defender);
-		cout<< defender.getName()<<" died. "<< attacker.getName()<<" wins.\n";
+		//Fanni wins. Remaining HP:3050
+		cout<< attacker.getName()<<" wins. Remaining HP:"<<attacker.getHp();
 	}
 
 }
@@ -23,7 +18,6 @@ void auto_combat(Character& player1, Character& player2){
 	int turn=1;
 	bool end=false;
 	while (!end){
-		print_stat(player1);print_stat(player2);
 		if (turn==1){
 			take_turn(player1,player2,end);
 			turn=2;
@@ -38,12 +32,9 @@ void auto_combat(Character& player1, Character& player2){
 	}	
 }
 
-int main(int argc, char* argv[]) {
-	cout << "Program running: " << argv[0] << endl;
-	cout << "2 files' name\n";
-	
+int main(int argc, char* argv[]) {	
 	if (argc != 3) {
-		cout << argv[0] << "2 files' name\n";;
+		cerr << argv[0] << "2 files' name\n";;
 	}
 	else {
 		// command prompt parameters
