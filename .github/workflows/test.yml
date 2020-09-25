@@ -7,6 +7,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - run: g++ -std=c++17 *.cpp
+      - run: g++ -Wall *.cpp
+      - run: chmod +x runTest.sh
+      - run: ./runTest.sh
 
