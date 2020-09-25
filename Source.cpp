@@ -9,7 +9,7 @@ void take_turn (Character& attacker, Character& defender, bool& end){
 	if (defender.isDead()){
 		end=true;
 		//Fanni wins. Remaining HP:3050
-		cout<< attacker.getName()<<" wins. Remaining HP:"<<attacker.getHp();
+		cout<< attacker.getName()<<" wins. Remaining HP:"<<attacker.getHp()<<"\n";
 	}
 
 }
