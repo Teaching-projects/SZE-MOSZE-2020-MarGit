@@ -36,7 +36,11 @@ Character& Character::parseUnit(std::string filename){
 		while (std::getline(file,line)){
   			if (found=line.find("name")!=std::string::npos){
 				found=line.find(":");
-				name=line.substr(found+2,line.length()-1);
+				line=line.substr(found,line.length());
+				found=line.find("\"");
+				std::size_t found2;
+				found2=line.find_last_of("\"");
+				name=line.substr(found+1,found2-found-1);
 			}
    			else if (found=line.find("hp")!=std::string::npos){
 				found=line.find(":");
