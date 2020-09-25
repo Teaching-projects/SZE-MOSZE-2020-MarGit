@@ -1,7 +1,7 @@
 #!/bin/sh
 
 
-touch > output.txt
+touch output.txt
 
 ./a.out Units/Unit1.json Units/Unit2.json >> output.txt
 ./a.out Units/Unit1.json Units/Unit3.json >> output.txt
