@@ -8,8 +8,7 @@ void take_turn (Character& attacker, Character& defender, bool& end){
 	attacker.attack(defender);
 	if (defender.isDead()){
 		end=true;
-		//Fanni wins. Remaining HP:3050
-		cout<< attacker.getName()<<" wins. Remaining HP:"<<attacker.getHp()<<"\n";
+		cout<<attacker;
 	}
 
 }
@@ -44,8 +43,9 @@ int main(int argc, char* argv[]) {
 			auto_combat(p1,p2);
 		}
 		catch (int x){
-		if (x==-99) std::cerr<< "Can not open the files!\n";
-		else std::cerr<<"Something went wrong!\n";	
+			if (x==-99) cerr<< "Can not open the files!\n";
+			else cerr<<"Something went wrong!\n";
+			return x;
 		}
 	}
 	return 0;
