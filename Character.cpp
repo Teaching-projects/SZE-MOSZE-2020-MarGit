@@ -24,7 +24,7 @@ void Character::attack(Character&  target) const{
 bool Character::isDead() const{
 	return getHp()==0;
 }
-Character& Character::parseUnit(std::string filename){
+Character Character::parseUnit(const std::string &filename){
 	std::ifstream file;
     file.open(filename);
 	if (!file.is_open()) throw -99;
@@ -52,11 +52,11 @@ Character& Character::parseUnit(std::string filename){
 			}
 		}
 		file.close();
-		Character* ptr=new Character(name,hp, dmg);
-		return *ptr;
+		Character characterObj(name,hp, dmg);
+		return characterObj;
 	}
 }
 std::ostream& operator<<(std::ostream& os, const Character& character){
-    os << character.getName() << "\t HP: " << character.getHp() << " , DMG: " << character.getDamage() <<"\n";
+    os <<character.getName()<<" wins. Remaining HP:"<<character.getHp()<<"\n";
     return os;
 }	
