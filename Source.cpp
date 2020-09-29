@@ -45,7 +45,7 @@ int main(int argc, char* argv[]) {
 		catch (int x){
 			if (x==-99) cerr<< "Can not open the files!\n";
 			else cerr<<"Something went wrong!\n";
-			return x;
+			return 1;
 		}
 	}
 	return 0;

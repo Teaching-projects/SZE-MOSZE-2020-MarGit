@@ -26,7 +26,7 @@ bool Character::isDead() const{
 }
 Character Character::parseUnit(const std::string &filename){
 	std::ifstream file;
-    file.open(filename);
+	file.open(filename);
 	if (!file.is_open()) throw -99;
 	else{
 		std::string line;
@@ -52,8 +52,7 @@ Character Character::parseUnit(const std::string &filename){
 			}
 		}
 		file.close();
-		Character characterObj(name,hp, dmg);
-		return characterObj;
+		return Character(name, hp, dmg);
 	}
 }
 std::ostream& operator<<(std::ostream& os, const Character& character){
