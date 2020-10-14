@@ -18,7 +18,7 @@ public:
 	void attack(Character& target) const;
 	friend std::ostream& operator<<(std::ostream& os, const Character& character);
 	bool isDead() const;
-	static Character parseUnit(const std::string &filename );
+	static Character parseUnit(const std::string& filename);
 };
 std::ostream& operator<<(std::ostream& os, const Character& character);
 #endif
