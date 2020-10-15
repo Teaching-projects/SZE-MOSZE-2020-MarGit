@@ -17,7 +17,7 @@ std::map<std::string, std::string> Json_parser::ParseContent (std::string& filec
 			}
 			else{
 				begin=line.find(":");
-				val=line.substr(begin+2,line.length()-1);
+				val=std::to_string((std::stoi(line.substr(begin+2,line.length()-1))));
 			}
 			data.insert(std::pair <std::string,std::string>(key,val));
 		}
@@ -31,24 +31,19 @@ std::map<std::string, std::string> Json_parser::Parse (const std::string& filena
 	std::string line;
 	std::string filecontent="";
 	file.open(filename);
-	std::map <std::string, std::string> data;
 	if (!file.is_open()) throw -99;
 	else{
 		while (std::getline(file,line)){
 			filecontent+=line+"\n";
 		}
-		data=ParseContent(filecontent);
 		file.close();
-		return data;
+		return ParseContent(filecontent);;
 	}
 }
 
-std::map<std::string, std::string> Json_parser::Parse (const std::istream& datastream){
+std::map<std::string, std::string> Json_parser::Parse (std::istream& datastream){
 	std::string filecontent;
-	std::map <std::string, std::string> data;
-	std::ostringstream os;
-	os<<datastream.rdbuf();
-	filecontent=os.str();
-	data=ParseContent(filecontent);
-	return data;
+	std::getline(datastream,filecontent);
+	std::cout<<filecontent;
+	return Json_parser::ParseContent(filecontent);
 }
