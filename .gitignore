@@ -1,2 +1,11 @@
 *.exe
 .vscode
+CMakefiles
+GKxB_INTM006
+*.out
+Unittest/CMakefiles
+Unittest/*.cmake
+Unittest/Makefile
+Unittest/CMakeCache.txt
+
+
