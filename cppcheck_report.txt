@@ -1,0 +1,7 @@
+[Character.cpp:37]: (style) Suspicious condition (assignment + comparison); Clarify expression with parentheses.
+[Character.cpp:45]: (style) Suspicious condition (assignment + comparison); Clarify expression with parentheses.
+[Character.cpp:49]: (style) Suspicious condition (assignment + comparison); Clarify expression with parentheses.
+[Character.cpp:33]: (style) The scope of the variable 'found' can be reduced.
+[Character.cpp:5] -> [Character.h:9]: (style, inconclusive) Member variable 'Character::hp' is in the wrong place in the initializer list.
+[Character.cpp:5]: (performance) Function parameter 'char_name' should be passed by const reference.
+(information) Cppcheck cannot find all the include files (use --check-config for details)
