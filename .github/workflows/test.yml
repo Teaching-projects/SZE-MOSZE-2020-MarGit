@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: g++ Source.cpp Character.cpp
+      - run: clang++ Source.cpp Character.cpp -Wall -Wextra -g -fsaitize=address
       - run: ./runTest.sh
       - name: cppcheck
         uses: deep5050/cppcheck-action@master
