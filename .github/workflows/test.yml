@@ -8,6 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: g++ -Wall Source.cpp Character.cpp
+      - run: g++ -Wall Source.cpp Character.cpp Json_parser.cpp
       - run: ./runTest.sh
+      - run: ./runTests
 
