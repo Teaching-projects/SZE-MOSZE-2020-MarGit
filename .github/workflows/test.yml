@@ -4,16 +4,11 @@ on:
   push
 
 jobs:
-  one:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - run: g++ Source.cpp Character.cpp
       - run: ./runTest.sh
-  two:
-    name: cppcheck
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
       - name: cppcheck
         uses: deep5050/cppcheck-action@master
