@@ -10,5 +10,5 @@ jobs:
       - uses: actions/checkout@v2
       - run: g++ -Wall Source.cpp Character.cpp Json_parser.cpp
       - run: ./runTest.sh
-      - run: ./runTests
+      - run: ./Unittest/runTests
 
